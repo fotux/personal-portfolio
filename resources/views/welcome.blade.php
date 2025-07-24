@@ -18,7 +18,7 @@
 </head>
 
 <body>
-    <h1 class="bg-red-100 font-bold">hello</h1>
+    <h1 class="bg-red-100 font-bold">hello you too</h1>
 </body>
 
 </html>
