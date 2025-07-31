@@ -16,5 +16,7 @@
     --color-dark: #0f172a;
     --color-background: #e7e7e7;
 
-    --glow-primary: 0px 0px 3px 4px #2dd33d;
+    --glow-primary: 0px 0px 3px 5px #2dd33d;
+
+    --glow-favorite: 0px -2px 3px 6px #2dd33d;
 }

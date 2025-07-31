@@ -6,8 +6,13 @@
             <div class="absolute w-14 h-0.5 bg-gradient-to-t from-primary to-secondary rounded-full"></div>
         </div>
         </div>
-        <div class="flex gap-10 text-light tracking-tight ">
-            <a href=""><span
+
+        <button class="hamburger w-15 h-15 mix-blend-plus-lighter md:hidden"><img
+                src="{{ asset('build/assets/hamburger.svg') }}" alt="hamburger_2"></button>
+
+        {{-- desktop nav --}}
+        <div class="md:flex gap-10 text-light tracking-tight hidden">
+            <a href="google.com"><span
                     class="bg-gradient-to-t from-primary to-secondary text-transparent bg-clip-text font-serif text-xl">01.
                 </span>About</a>
             <a href=""><span
@@ -20,9 +25,30 @@
                     class="bg-gradient-to-l from-primary to-secondary text-transparent bg-clip-text font-serif text-xl">04.
                 </span>Contact</a>
         </div>
-    </nav>
 
-    <section class="max-w-5xl mx-auto flex items-center justify-center py-15">
+    </nav>
+    {{-- mobile nav --}}
+    <div
+        class="nav-menu-mobile pointer-events-none opacity-0 flex flex-col bg-dark text-light md:py-4 text-lg list-none transition-all duration-300 ease rounded-b-2xl justify-center items-start h-full pl-5 ">
+        <a href="google.com"><span
+                class="bg-gradient-to-t from-primary to-secondary text-transparent bg-clip-text font-serif text-xl">01.
+            </span>About</a>
+        <a href=""><span
+                class="bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text font-serif text-xl">02.
+            </span>Education</a>
+        <a href=""><span
+                class="bg-gradient-to-b from-primary to-secondary text-transparent bg-clip-text font-serif text-xl">03.
+            </span>Project</a>
+        <a href=""><span
+                class="bg-gradient-to-l from-primary to-secondary text-transparent bg-clip-text font-serif text-xl">04.
+            </span>Contact</a>
+    </div>
+
+
+
+
+
+    <section class="about-me-section max-w-5xl mx-auto md:flex items-center justify-center md:pb-10">
         <div class="flex-1">
 
             <h1
@@ -58,13 +84,27 @@
         <h1 class="text-center text-5xl text-dark font-medium my-30 font-serif">My Skills</h1>
 
         <div
-            class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-10 justify-items-center items-stretch [perspective:800px]">
+            class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-2 md:gap-10 justify-items-center items-stretch [perspective:800px]">
             <div
-                class="cards text-center font-bold border-2 shadow-2xl bg-dark border-light text-light rounded-2xl flex flex-col justify-between items-center h-full p-5 hover:border-secondary hover:shadow-[var(--glow-primary)] duration-100 transition-all ease">
-                <img src="{{ asset('build/assets/PHP.svg') }}" alt="" class="mx-auto mb-4 w-20 h-20">
-                <h1 class="text-xl bg-gradient-to-b from-primary to-secondary text-transparent bg-clip-text my-4">PHP
+                class="group cards text-center font-bold border-2 shadow-2xl bg-dark border-light text-light rounded-b-2xl flex flex-col justify-between items-center h-full p-5 hover:border-secondary hover:shadow-[var(--glow-primary)] duration-100 transition-all ease">
+                <div
+                    class="bg-primary text-light absolute -top-5 px-13.5 rounded-t-2xl group-hover:shadow-[var(--glow-favorite)] group-hover:border-secondary transition-all duration-100 ease-out">
+                    Favorite</div>
+                <img src="{{ asset('build/assets/laravel.svg') }}" alt="" class="mx-auto mb-4 w-20 h-20">
+                <h1 class="text-xl bg-gradient-to-b from-primary to-secondary text-transparent bg-clip-text my-4">
+                    LARAVEL
                 </h1>
                 <p class="text-light/70">1 year Knowledge</p>
+            </div>
+            <div
+                class="group cards text-center font-bold border-2 shadow-2xl bg-dark border-light text-light rounded-2xl flex flex-col justify-between items-center h-full p-5 hover:border-secondary hover:shadow-[var(--glow-primary)] duration-100 transition-all ease">
+                <img src="{{ asset('build/assets/PHP.svg') }}" alt=""
+                    class="mx-auto mb-4 w-20 h-20 group-hover:scale-105 duration-100 transition-all ease-in">
+                <h1
+                    class="text-xl bg-gradient-to-b from-primary to-secondary text-transparent bg-clip-text my-4 group-hover:scale-115 duration-100 transition-all ease-in">
+                    PHP
+                </h1>
+                <p class="text-light/70 group-hover:scale-110 duration-100 transition-all ease-in">1 year Knowledge</p>
             </div>
 
             <div
@@ -82,7 +122,7 @@
                 <img src="{{ asset('build/assets/html.svg') }}" alt="" class="mx-auto mb-4 w-20 h-20">
                 <h1 class="text-xl bg-gradient-to-b from-primary to-secondary text-transparent bg-clip-text my-4">HTML
                 </h1>
-                <p class="text-light/70">4 year Knowledge</p>
+                <p class="text-light/70">3 year Knowledge</p>
             </div>
 
             <div
@@ -90,7 +130,7 @@
                 <img src="{{ asset('build/assets/css.svg') }}" alt="" class="mx-auto mb-4 w-20 h-20">
                 <h1 class="text-xl bg-gradient-to-b from-primary to-secondary text-transparent bg-clip-text my-4">CSS
                 </h1>
-                <p class="text-light/70">4 year Knowledge</p>
+                <p class="text-light/70">3 year Knowledge</p>
             </div>
 
             <div
@@ -127,36 +167,6 @@
         </div>
 
 
-        {{-- script for 3d cards location --}}
-        <script>
-            const cards = document.querySelectorAll('.cards');
-
-            cards.forEach(card => {
-                card.addEventListener("mousemove", (e) => {
-                    const rect = card.getBoundingClientRect();
-
-                    // rotation
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-
-                    // center position
-                    const centerX = rect.width / 2;
-                    const centerY = rect.height / 2;
-
-                    // rotations from center
-                    const rotateX = (centerX - x) / 10;
-                    const rotateY = -(centerY - y) / 10;
-
-                    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.10)`;
-                });
-            });
-
-            cards.forEach(card => {
-                card.addEventListener("mouseleave", () => {
-                    card.style.transform = `rotateX(0deg) rotateY(0deg) scale(1)`;
-                })
-            });
-        </script>
     </section>
 
 
