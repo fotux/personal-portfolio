@@ -15,9 +15,9 @@
         rel="stylesheet">
 
     <!-- tailwind server side -->
-    @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
+    {{-- @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
         @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @endif
+    @endif --}}
 
     {{-- tailwind for github --}}
     <script src="https://cdn.tailwindcss.com"></script>
@@ -43,8 +43,12 @@
             }
         }
     </script>
+</head>
 
-    {{-- js for github --}}
+
+<body>
+    @include('index')
+
     <script>
         const cards = document.querySelectorAll(".cards");
 
@@ -121,11 +125,6 @@
             console.log("currentSlide");
         });
     </script>
-</head>
-
-
-<body>
-    @include('index')
 </body>
 
 </html>
