@@ -2,7 +2,7 @@
     <nav
         class="bg-dark md:bg-dark/90 text-light py-3 text-lg list-none flex justify-around font-semibold md:sticky md:top-0 md:z-50 ">
         <div
-            class="font-sans font-bold text-2xl from-primary to-secondary bg-gradient-to-b text-transparent bg-clip-text relative tracking-widest">
+            class="font-sans font-bold text-2xl bg-gradient-to-t from-primary to-secondary text-transparent bg-clip-text relative tracking-widest">
             Karolis Raginkis
             <div class="absolute w-14 h-0.5 bg-gradient-to-t from-primary to-secondary rounded-full"></div>
         </div>
@@ -13,7 +13,7 @@
 
         {{-- desktop nav --}}
         <div class="md:flex gap-10 text-light tracking-tight hidden">
-            <a href="google.com"><span
+            <a href=""><span
                     class="bg-gradient-to-t from-primary to-secondary text-transparent bg-clip-text font-serif text-xl">01.
                 </span>About</a>
             <a href=""><span
@@ -84,7 +84,7 @@
     </section>
 
     <section>
-        <h1 class="text-center text-5xl text-dark font-medium mt-30 font-serif">My Skills</h1>
+        <h1 class="text-center text-5xl text-dark font-medium mt-20 font-serif">My Skills</h1>
 
         <p class="text-center text-dark/70 text-lg my-10 max-w-5xl mx-auto font-serif">
             While I’m capable of working across the full stack, my main focus is backend development. I'm especially
@@ -96,9 +96,9 @@
             class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-2 md:gap-10 justify-items-center items-stretch [perspective:800px]">
 
             <div
-                class="group cards text-center font-bold border-2 shadow-2xl bg-dark border-light text-light rounded-b-2xl flex flex-col justify-between items-center h-full p-5 hover:border-secondary hover:shadow-[var(--glow-primary)] duration-100 transition-all ease">
+                class="group cards text-center font-bold border-2 shadow-2xl bg-dark border-light text-light rounded-b-2xl flex flex-col justify-between items-center h-full p-5 hover:border-secondary hover:shadow-glow-primary duration-100 transition-all ease">
                 <div
-                    class="bg-primary text-light absolute -top-5 px-13.5 rounded-t-2xl group-hover:shadow-[var(--glow-favorite)] group-hover:border-secondary transition-all duration-100 ease-out">
+                    class="bg-primary text-light absolute -top-5 px-[54px] rounded-t-2xl group-hover:shadow-glow-favorite group-hover:border-secondary transition-all duration-100 ease-out">
                     Favorite</div>
                 <img src="{{ asset('build/assets/laravel.svg') }}" alt=""
                     class="mx-auto mb-4 w-20 h-20 group-hover:scale-105 duration-100 transition-all ease-in">
@@ -115,12 +115,12 @@
             <x-skills src="build/assets/mysql.svg" name="MYSQL" knowledge="1 year Knowledge" alt="MYSQL" />
             <x-skills src="build/assets/tailwind.svg" name="TAILWIND" knowledge="1 year Knowledge" alt="TAILWIND" />
             <x-skills src="build/assets/wordpress.svg" name="WORDPRESS" knowledge="1 year Knowledge" alt="WORDPRESS" />
-            <x-skills src="build/assets/git.svg" name="GIT" knowledge="2 year Knowledge" alt="GIT" />
+            <x-skills src="build/assets/git.svg" name="GIT" knowledge="1 year Knowledge" alt="GIT" />
         </div>
     </section>
 
     <section>
-        <h1 class="text-center text-5xl text-dark font-medium mt-30 font-serif">My Projects</h1>
+        <h1 class="text-center text-5xl text-dark font-medium mt-20 font-serif">My Projects</h1>
         <p class="text-center text-dark/70 text-lg font-serif my-10">
             Here’s a look at one of my recent projects. More are on the way — stay tuned!
         </p>
@@ -135,7 +135,7 @@
                 <img src="{{ asset('build/assets/arrow-right.svg') }}" alt="arrow-right"></button>
 
             <div
-                class="bg-light pt-10 rounded-2xl shadow-lg shadow-light/50 slider-wrapper flex transition-transform duration-500 ease-in-out ">
+                class="bg-white pt-10 rounded-2xl shadow-lg shadow-light/50 slider-wrapper flex transition-transform duration-500 ease-in-out ">
                 {{-- slide 1 --}}
 
                 <div class=" slide min-w-full">
@@ -171,7 +171,7 @@
 
             </div>
 
-            <div class="bg-light flex justify-center text-center text-2xl space-x-2 cursor-pointer py-2">
+            <div class="bg-white flex justify-center text-center text-2xl space-x-2 cursor-pointer py-2">
                 <svg class="w-6 h-6 stroke-current text-dark hover:fill-secondary/60 transition-all duration-150 fill-white"
                     viewBox="0 0 24 24">
                     <circle cx="12" cy="12" r="10" stroke-width="3" />
@@ -191,45 +191,4 @@
             </div>
         </div>
     </section>
-
-    <section>
-        <h1 class="my-20">lalalala</h1>
-    </section>
-
-
-    <script>
-        const slidesWrapper = document.querySelector('.slider-wrapper');
-        const slides = document.querySelectorAll('.slide');
-        const btnLeft = document.querySelector('.btn-left');
-        const btnRight = document.querySelector('.btn-right');
-        // console.log(btnLeft);
-
-        let currentSlide = 0;
-        const totalSlides = slides.length;
-        console.log(totalSlides);
-
-        function updateSlidePosition() {
-            slidesWrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
-        }
-
-        btnLeft.addEventListener('click', () => {
-
-            if (currentSlide > 0) {
-                currentSlide--;
-                updateSlidePosition();
-            }
-        });
-
-        btnRight.addEventListener('click', () => {
-
-            if (currentSlide < totalSlides - 1) {
-                currentSlide++;
-                updateSlidePosition();
-            }
-
-
-            console.log('currentSlide');
-        });
-    </script>
-
 </main>
